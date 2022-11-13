@@ -2,10 +2,10 @@
 Multi-module demo app that gets data from a Dota2 api.
 
 # List to Detail screen
-<img src="https://github.com/mitchtabian/Dota-Info/blob/master/art/demo1.gif" width="25%">
+<img src="https://github.com/sonu0011/Dota-Info/blob/master/art/demo1.gif" width="25%">
 
 # Filtering
-<img src="https://github.com/mitchtabian/Dota-Info/blob/master/art/demo2.gif" width="25%">
+<img src="https://github.com/sonu0011/Dota-Info/blob/master/art/demo2.gif" width="25%">
 
 # Module Design
 
