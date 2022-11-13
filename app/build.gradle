@@ -1,0 +1,86 @@
+plugins {
+    id 'com.android.application'
+    id 'org.jetbrains.kotlin.android'
+    id 'kotlin-kapt'
+    id 'dagger.hilt.android.plugin'
+
+}
+
+android {
+    namespace Android.appId
+    compileSdk Android.compileSdk
+
+    defaultConfig {
+        applicationId Android.appId
+        minSdk Android.minSdk
+        targetSdk Android.targetSdk
+        versionCode Android.versionCode
+        versionName Android.versionName
+
+        testInstrumentationRunner "com.sonu.dotainfo.CustomTestRunner"
+        vectorDrawables {
+            useSupportLibrary true
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+    buildFeatures {
+        compose true
+    }
+    composeOptions {
+        kotlinCompilerExtensionVersion '1.1.1'
+    }
+    packagingOptions {
+        resources {
+            excludes += '/META-INF/{AL2.0,LGPL2.1}'
+        }
+    }
+}
+
+dependencies {
+
+    implementation(project(Modules.heroDomain))
+    implementation(project(Modules.heroInteractors))
+    implementation(project(Modules.heroDataSource))
+    implementation(project(Modules.core))
+    implementation(project(Modules.ui_heroList))
+    implementation(project(Modules.ui_heroDetail))
+
+    implementation(Accompanist.animations)
+
+    implementation(AndroidX.coreKtx)
+    implementation(AndroidX.lifecycleVmKtx)
+
+    implementation(Compose.activity)
+    implementation(Compose.ui)
+    implementation(Compose.tooling)
+    implementation(Compose.material)
+    implementation(Compose.navigation)
+    implementation(Compose.hiltNavigation)
+
+    implementation(Coil.coil)
+
+    implementation(Hilt.android)
+    kapt(Hilt.compiler)
+    implementation(SqlDelight.androidDriver)
+    androidTestImplementation(project(Modules.heroDataSourceTest))
+    androidTestImplementation(AndroidXTest.runner)
+    androidTestImplementation(ComposeTest.uiTestJunit4)
+    androidTestImplementation(HiltTest.hiltAndroidTesting)
+    kaptAndroidTest(Hilt.compiler)
+    androidTestImplementation(Junit.junit4)
+
+
+}

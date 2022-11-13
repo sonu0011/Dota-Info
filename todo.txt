@@ -1,0 +1,7 @@
+Remove experimental annotation
+Remove copy method
+Remove resource duplication
+Remove repetition of primary attribute code from composable
+Learn Navigation Animation
+Add Navigation animation
+Fake image loader code duplication
