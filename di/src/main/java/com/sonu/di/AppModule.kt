@@ -1,4 +1,4 @@
-package com.sonu.dotainfo.di
+package com.sonu.di
 
 import android.app.Application
 import coil.ImageLoader

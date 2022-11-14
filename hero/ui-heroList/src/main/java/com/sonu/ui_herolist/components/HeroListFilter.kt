@@ -367,114 +367,64 @@ fun PrimaryAttrSelector(
     onRemoveAttributeFilter: () -> Unit,
 ) {
     // Strength
-    Row(
-        horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 24.dp, bottom = 8.dp)
-            .testTag(TAG_HERO_FILTER_STENGTH_CHECKBOX)
-            .clickable(
-                interactionSource = MutableInteractionSource(),
-                indication = null, // disable the highlight
-                onClick = {
-                    onUpdateHeroFilterStr()
-                },
-            ),
-    ) {
-        Checkbox(
-            modifier = Modifier
-                .padding(end = 8.dp)
-                .align(Alignment.CenterVertically),
-            checked = isStr,
-            onCheckedChange = {
-                onUpdateHeroFilterStr()
-            },
-            colors = CheckboxDefaults.colors(MaterialTheme.colors.primary)
-        )
-        Text(
-            text = HeroAttribute.Strength.uiValue,
-            style = MaterialTheme.typography.body1,
-        )
-    }
+    PrimaryAttributeItem(
+        title = HeroAttribute.Strength.uiValue,
+        testTag = TAG_HERO_FILTER_STENGTH_CHECKBOX,
+        isChecked = isStr,
+        onRowClick = { onUpdateHeroFilterStr() },
+        onCheckedChange = { onUpdateHeroFilterStr() }
+    )
 
     // Agility
-    Row(
-        horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 24.dp, bottom = 8.dp)
-            .testTag(TAG_HERO_FILTER_AGILITY_CHECKBOX)
-            .clickable(
-                interactionSource = MutableInteractionSource(),
-                indication = null, // disable the highlight
-                onClick = {
-                    onUpdateHeroFilterAgi()
-                },
-            ),
-    ) {
-        Checkbox(
-            modifier = Modifier
-                .padding(end = 8.dp)
-                .align(Alignment.CenterVertically),
-            checked = isAgi,
-            onCheckedChange = {
-                onUpdateHeroFilterAgi()
-            },
-            colors = CheckboxDefaults.colors(MaterialTheme.colors.primary)
-        )
-        Text(
-            text = HeroAttribute.Agility.uiValue,
-            style = MaterialTheme.typography.body1,
-        )
-    }
+    PrimaryAttributeItem(
+        title = HeroAttribute.Agility.uiValue,
+        testTag = TAG_HERO_FILTER_AGILITY_CHECKBOX,
+        isChecked = isAgi,
+        onRowClick = { onUpdateHeroFilterAgi() },
+        onCheckedChange = { onUpdateHeroFilterAgi() }
+    )
 
     // Intelligence
-    Row(
-        horizontalArrangement = Arrangement.Start,
-        verticalAlignment = Alignment.CenterVertically,
-        modifier = Modifier
-            .fillMaxWidth()
-            .padding(start = 24.dp, bottom = 8.dp)
-            .testTag(TAG_HERO_FILTER_INT_CHECKBOX)
-            .clickable(
-                interactionSource = MutableInteractionSource(),
-                indication = null, // disable the highlight
-                onClick = {
-                    onUpdateHeroFilterInt()
-                },
-            ),
-    ) {
-        Checkbox(
-            modifier = Modifier
-                .padding(end = 8.dp)
-                .align(Alignment.CenterVertically),
-            checked = isInt,
-            onCheckedChange = {
-                onUpdateHeroFilterInt()
-            },
-            colors = CheckboxDefaults.colors(MaterialTheme.colors.primary)
-        )
-        Text(
-            text = HeroAttribute.Intelligence.uiValue,
-            style = MaterialTheme.typography.body1,
-        )
-    }
+    PrimaryAttributeItem(
+        title = HeroAttribute.Intelligence.uiValue,
+        testTag = TAG_HERO_FILTER_INT_CHECKBOX,
+        isChecked = isInt,
+        onRowClick = { onUpdateHeroFilterInt() },
+        onCheckedChange = { onUpdateHeroFilterInt() }
+    )
 
     // No Filter on Attribute
+
+    PrimaryAttributeItem(
+        title = stringResource(R.string.none),
+        testTag = TAG_HERO_FILTER_UNKNOWN_CHECKBOX,
+        isChecked = !isStr && !isAgi && !isInt,
+        onRowClick = { onRemoveAttributeFilter() },
+        onCheckedChange = { onRemoveAttributeFilter() }
+    )
+}
+
+@Composable
+private fun PrimaryAttributeItem(
+    title: String,
+    testTag: String,
+    isChecked: Boolean,
+    onRowClick: () -> Unit,
+    onCheckedChange: () -> Unit,
+) {
+
     Row(
         horizontalArrangement = Arrangement.Start,
         verticalAlignment = Alignment.CenterVertically,
         modifier = Modifier
             .fillMaxWidth()
             .padding(start = 24.dp, bottom = 8.dp)
-            .testTag(TAG_HERO_FILTER_UNKNOWN_CHECKBOX)
+            .testTag(testTag)
             .clickable(
                 interactionSource = MutableInteractionSource(),
                 indication = null, // disable the highlight
                 onClick = {
-                    onRemoveAttributeFilter()
+                    onRowClick()
                 },
             ),
     ) {
@@ -482,14 +432,14 @@ fun PrimaryAttrSelector(
             modifier = Modifier
                 .padding(end = 8.dp)
                 .align(Alignment.CenterVertically),
-            checked = !isStr && !isAgi && !isInt,
+            checked = isChecked,
             onCheckedChange = {
-                onRemoveAttributeFilter()
+                onCheckedChange()
             },
             colors = CheckboxDefaults.colors(MaterialTheme.colors.primary)
         )
         Text(
-            text = stringResource(R.string.none),
+            text = title,
             style = MaterialTheme.typography.body1,
         )
     }

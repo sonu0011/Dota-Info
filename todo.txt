@@ -1,7 +1,12 @@
 Remove experimental annotation
 Remove copy method
 Remove resource duplication - Done
-Remove repetition of primary attribute code from composable
+Remove repetition of primary attribute code from composable  : Done
 Learn Navigation Animation
 Add Navigation animation
-Fake image loader code duplication
+
+Fake image loader code duplication (Inside test package and inside java package how to get from one common source
+) : (Don't know how to use module
+code in androidTest Directory of other Module or may be creating
+one module which provides common dependencies is wrong approach or
+may be injecting in androidTest is a way(tried this but nor working for me)) : Half Done Not In androidTest

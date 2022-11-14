@@ -24,7 +24,7 @@ import androidx.compose.ui.unit.dp
 import com.sonu.ui_herolist.ui.test.TAG_HERO_FILTER_BTN
 import com.sonu.ui_herolist.ui.test.TAG_HERO_SEARCH_BAR
 
-@ExperimentalComposeUiApi
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun HeroListToolbar(
     heroName: String,

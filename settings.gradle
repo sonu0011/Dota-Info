@@ -1,4 +1,5 @@
 pluginManagement {
+
     repositories {
         gradlePluginPortal()
         google()
@@ -26,3 +27,4 @@ include ':hero:ui-heroDetail'
 include ':components'
 include ':resources'
 include ':resources:drawables'
+include ':di'

@@ -22,6 +22,26 @@ android {
             useSupportLibrary true
         }
     }
+    allprojects {
+        tasks.withType(org.jetbrains.kotlin.gradle.tasks.KotlinCompile).all {
+            kotlinOptions {
+                freeCompilerArgs += [
+                        "-Xuse-experimental=kotlin.ExperimentalUnsignedTypes",
+                        "-Xuse-experimental=kotlinx.coroutines.ExperimentalCoroutinesApi",
+                        "-Xuse-experimental=kotlinx.coroutines.InternalCoroutinesApi",
+                        "-Xuse-experimental=androidx.compose.animation.ExperimentalAnimationApi",
+                        "-Xuse-experimental=androidx.compose.ExperimentalComposeApi",
+                        "-Xuse-experimental=androidx.compose.material.ExperimentalMaterialApi",
+                        "-Xuse-experimental=androidx.compose.runtime.ExperimentalComposeApi",
+                        "-Xuse-experimental=androidx.compose.ui.ExperimentalComposeUiApi",
+                        "-Xuse-experimental=coil.annotation.ExperimentalCoilApi",
+                        "-Xuse-experimental=kotlinx.serialization.ExperimentalSerializationApi",
+                        "-Xuse-experimental=com.google.accompanist.pager.ExperimentalPagerApi"
+                ]
+            }
+        }
+    }
+
 
     buildTypes {
         release {
@@ -58,8 +78,10 @@ dependencies {
     implementation(project(Modules.ui_heroList))
     implementation(project(Modules.ui_heroDetail))
     implementation(project(Modules.resources_drawables))
+    implementation(project(Modules.di))
 
     implementation(Accompanist.animations)
+    implementation(Coil.coil)
 
     implementation(AndroidX.coreKtx)
     implementation(AndroidX.lifecycleVmKtx)
@@ -70,8 +92,6 @@ dependencies {
     implementation(Compose.material)
     implementation(Compose.navigation)
     implementation(Compose.hiltNavigation)
-
-    implementation(Coil.coil)
 
     implementation(Hilt.android)
     kapt(Hilt.compiler)
