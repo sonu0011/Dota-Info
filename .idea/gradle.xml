@@ -22,6 +22,8 @@
             <option value="$PROJECT_DIR$/hero/hero-interactors" />
             <option value="$PROJECT_DIR$/hero/ui-heroDetail" />
             <option value="$PROJECT_DIR$/hero/ui-heroList" />
+            <option value="$PROJECT_DIR$/resources" />
+            <option value="$PROJECT_DIR$/resources/drawables" />
           </set>
         </option>
       </GradleProjectSettings>

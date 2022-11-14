@@ -1,6 +1,6 @@
 Remove experimental annotation
 Remove copy method
-Remove resource duplication
+Remove resource duplication - Done
 Remove repetition of primary attribute code from composable
 Learn Navigation Animation
 Add Navigation animation

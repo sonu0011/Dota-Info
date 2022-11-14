@@ -7,6 +7,7 @@ dependencies {
     "implementation"(project(Modules.heroDomain))
     "implementation"(project(Modules.heroInteractors))
     "implementation"(project(Modules.components))
+    "implementation"(project(Modules.resources_drawables))
 
     "implementation"(Coil.coil)
 

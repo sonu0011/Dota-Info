@@ -8,6 +8,7 @@ dependencies {
     "implementation"(project(Modules.core))
     "implementation"(project(Modules.heroDomain))
     "implementation"(project(Modules.components))
+    "implementation"(project(Modules.resources_drawables))
 
     "implementation"(Coil.coil)
 

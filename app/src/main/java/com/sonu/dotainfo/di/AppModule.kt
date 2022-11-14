@@ -2,12 +2,12 @@ package com.sonu.dotainfo.di
 
 import android.app.Application
 import coil.ImageLoader
-import com.sonu.dotainfo.R
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
+import  com.sonu.drawables.R
 
 @Module
 @InstallIn(SingletonComponent::class)

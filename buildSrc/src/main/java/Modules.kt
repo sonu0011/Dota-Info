@@ -15,4 +15,6 @@ object Modules {
     const val heroInteractors = ":hero:hero-interactors"
     const val ui_heroDetail = ":hero:ui-heroDetail"
     const val ui_heroList = ":hero:ui-heroList"
+
+    const val resources_drawables = ":resources:drawables"
 }

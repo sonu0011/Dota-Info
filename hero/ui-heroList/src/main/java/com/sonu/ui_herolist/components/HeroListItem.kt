@@ -23,7 +23,7 @@ import com.sonu.hero_domain.Hero
 import com.sonu.ui_herolist.ui.test.TAG_HERO_NAME
 import com.sonu.ui_herolist.ui.test.TAG_HERO_PRIMARY_ATTRIBUTE
 import kotlin.math.roundToInt
-import com.sonu.ui_herolist.R
+import com.sonu.drawables.R
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable

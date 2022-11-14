@@ -26,6 +26,8 @@ import com.sonu.hero_domain.maxAttackDmg
 import com.sonu.hero_domain.minAttackDmg
 import com.sonu.ui_herodetail.R
 import kotlin.math.round
+import com.sonu.drawables.R as D
+
 
 @OptIn(ExperimentalCoilApi::class)
 @Composable
@@ -54,7 +56,11 @@ fun HeroDetail(
                             hero.img,
                             imageLoader = imageLoader,
                             builder = {
-                                placeholder(if (isSystemInDarkTheme()) R.drawable.black_background else R.drawable.white_background)
+                                placeholder(
+                                    if (isSystemInDarkTheme())
+                                        D.drawable.black_background else
+                                        D.drawable.white_background
+                                )
                             }
                         )
                         Image(
@@ -88,7 +94,7 @@ fun HeroDetail(
                                     hero.icon,
                                     imageLoader = imageLoader,
                                     builder = {
-                                        placeholder(if (isSystemInDarkTheme()) R.drawable.black_background else R.drawable.white_background)
+                                        placeholder(if (isSystemInDarkTheme()) D.drawable.black_background else D.drawable.white_background)
                                     }
                                 )
                                 Image(
